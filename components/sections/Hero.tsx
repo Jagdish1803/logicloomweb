@@ -69,7 +69,7 @@ export function Hero() {
         {/* ---- Headline ---- */}
         <h1 className="display mx-auto mt-6 max-w-[1160px] text-center text-[46px] leading-[0.94] sm:text-[68px] md:mt-8 md:text-[92px] lg:text-[104px]">
           <span className="sr-only">
-            Effortless design for digital startups, based in London, UK.
+            Websites built, fixed and ranked — from Mumbai, India.
           </span>
 
           <span aria-hidden="true" className="block">
@@ -80,9 +80,9 @@ export function Hero() {
               animate={reduceMotion ? "static" : "visible"}
               className="block"
             >
-              Effortless
+              Websites
               <Pill seed={0} />
-              <span className="text-accent">Design</span>
+              <span className="text-accent">Built</span>
             </motion.span>
 
             <motion.span
@@ -92,9 +92,9 @@ export function Hero() {
               animate={reduceMotion ? "static" : "visible"}
               className="block"
             >
-              <span className="display-outline">for</span>
+              <span className="display-outline">Fixed &amp;</span>
               <Pill seed={1} />
-              Digital Startups
+              Ranked
             </motion.span>
 
             <motion.span
@@ -104,9 +104,9 @@ export function Hero() {
               animate={reduceMotion ? "static" : "visible"}
               className="block"
             >
-              <span className="display-outline">based in</span> London,
+              <span className="display-outline">from</span> Mumbai,
               <Pill seed={2} />
-              UK
+              India
             </motion.span>
           </span>
         </h1>
@@ -118,18 +118,24 @@ export function Hero() {
           transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.5, ease: EASE_OUT_EXPO }}
           className="mx-auto mt-7 max-w-[52ch] text-center text-[15px] leading-relaxed text-ink-soft md:mt-9 md:text-[17px]"
         >
-          We make it easy for startups to launch, grow, and scale with clean,
-          conversion-focused designs — no delays, no drama.
+          Custom sites built from scratch, broken ones fixed fast, and technical
+          SEO that moves the needle — at honest prices, backed by a money-back
+          guarantee.
         </motion.p>
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.62, ease: EASE_OUT_EXPO }}
-          className="mt-8 flex justify-center md:mt-10"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-10"
         >
           <Magnetic strength={0.2}>
             <ButtonLink href="/#pricing">View Plans</ButtonLink>
+          </Magnetic>
+          <Magnetic strength={0.2}>
+            <ButtonLink href="/#fiverr" variant="outline">
+              See Fiverr Gigs
+            </ButtonLink>
           </Magnetic>
         </motion.div>
       </div>

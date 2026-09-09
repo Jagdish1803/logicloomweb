@@ -3,9 +3,16 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useId, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
-import { Check, Chevron } from "@/components/ui/icons";
+import { Select } from "@/components/ui/Select";
+import { Check } from "@/components/ui/icons";
+import { services } from "@/lib/data";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const serviceOptions = [
+  ...services.map((service) => service.title),
+  "Something else",
+];
 
 const fieldClass =
   "peer w-full rounded-2xl border border-line bg-surface px-5 pt-7 pb-3 text-[15px] " +
@@ -91,29 +98,11 @@ export function ContactForm({
       />
 
       {withServiceField ? (
-        <div className="relative">
-          <label
-            htmlFor={`${id}-service`}
-            className="absolute top-4 left-5 text-[13px] text-ink-faint"
-          >
-            What do you need from us?
-          </label>
-          <select
-            id={`${id}-service`}
-            name="service"
-            defaultValue=""
-            className="w-full cursor-pointer appearance-none rounded-2xl border border-line bg-surface px-5 pt-7 pb-3 text-[15px] outline-none transition-colors duration-300 focus:border-ink"
-          >
-            <option value="" disabled>
-              Select
-            </option>
-            <option>Web Design</option>
-            <option>App Design</option>
-            <option>Branding</option>
-            <option>Others</option>
-          </select>
-          <Chevron className="pointer-events-none absolute top-1/2 right-5 size-4 -translate-y-1/2 text-ink-faint" />
-        </div>
+        <Select
+          name="service"
+          label="What do you need from us?"
+          options={serviceOptions}
+        />
       ) : null}
 
       <Field

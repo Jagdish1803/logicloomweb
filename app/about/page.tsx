@@ -12,7 +12,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Logic first, then craft — meet the studio behind LogicLoom Web.",
+    "Logic first, then craft — the web development, fixing and SEO studio behind LLW.",
   alternates: { canonical: "/about" },
 };
 
@@ -20,12 +20,12 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="Meet LogicLoom Web"
+        eyebrow="Meet LLW"
         title="Logic First, Then Craft"
-        description="Structure the problem, then weave the interface around it. At LogicLoom Web, every website starts as a system before it becomes a screen."
+        description="Structure the problem, then weave the interface around it. At LLW, every website starts as a system before it becomes a screen — and stays one long after launch."
         action={<ButtonLink href="/works">View Projects</ButtonLink>}
       />
-      <Manifesto text="We help fast-moving digital startups launch sharper brands and websites — with clarity, speed, and no drama. Think bold storytelling, pixel-perfect design and agile execution, all tailored to scale your next big move." />
+      <Manifesto text="We build websites from scratch, fix the ones that are already broken, and get both of them ranking. Think clean code, honest pricing and fast turnarounds — from a small team in Mumbai that answers the same day." />
       <Founder />
       <TrustMarquee />
       <Tools />

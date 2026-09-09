@@ -7,6 +7,7 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { Founder } from "@/components/sections/Founder";
 import { Awards } from "@/components/sections/Awards";
 import { Pricing } from "@/components/sections/Pricing";
+import { Fiverr } from "@/components/sections/Fiverr";
 import { Faq } from "@/components/sections/Faq";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Founder />
       <Awards />
       <Pricing />
+      <Fiverr />
       <Faq />
       <ContactSection />
     </>

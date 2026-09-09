@@ -1,5 +1,5 @@
 /**
- * LogicLoom Web icon.
+ * LLW icon.
  *
  * Four straight bands interlace over and under each other into a bold,
  * simplified "L"; every crossing point carries a small node — the nod to

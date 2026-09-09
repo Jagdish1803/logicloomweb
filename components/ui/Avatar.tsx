@@ -1,20 +1,15 @@
 /**
- * Deterministic generated avatars.
+ * Avatars.
  *
- * The reference site uses stock founder photography; we render equivalent
- * abstract portraits as inline SVG so the component ships zero image
- * requests and stays crisp at any density.
+ * Real portrait photos (downloaded to `/public/images/avatar-*.jpg`), cycled
+ * deterministically by seed so the same person always appears in the same
+ * slot. The `initials` prop is kept for API compatibility and used as the
+ * image alt text where an author is named.
  */
 
-/* Indigo→violet ramps drawn from the brand palette, with a few interpolated
-   steps so five distinct portraits stay distinguishable side by side. */
-const palettes = [
-  ["#7C3AED", "#2D2B6B"],
-  ["#2D2B6B", "#1A1A2E"],
-  ["#A78BFA", "#5B2FC4"],
-  ["#4B4A6A", "#1A1A2E"],
-  ["#8B5CF6", "#241F4D"],
-] as const;
+import Image from "next/image";
+
+const AVATAR_COUNT = 5;
 
 export function Avatar({
   seed,
@@ -27,43 +22,22 @@ export function Avatar({
   size?: number;
   className?: string;
 }) {
-  const [from, to] = palettes[seed % palettes.length];
-  const gradientId = `av-${seed}`;
+  const src = `/images/avatar-${((seed % AVATAR_COUNT) + AVATAR_COUNT) % AVATAR_COUNT}.jpg`;
+  const decorative = !initials;
 
   return (
     <span
-      className={`relative inline-block shrink-0 overflow-hidden rounded-full ${className}`}
+      className={`relative inline-block shrink-0 overflow-hidden rounded-full bg-night ${className}`}
       style={{ width: size, height: size }}
-      aria-hidden="true"
+      aria-hidden={decorative || undefined}
     >
-      <svg viewBox="0 0 64 64" className="size-full">
-        <defs>
-          <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={from} />
-            <stop offset="100%" stopColor={to} />
-          </linearGradient>
-        </defs>
-        <rect width="64" height="64" fill={`url(#${gradientId})`} />
-        {/* Simplified silhouette: head + shoulders */}
-        <circle cx="32" cy="25" r="11" fill="rgba(0,0,0,0.28)" />
-        <path
-          d="M8 64c0-13.3 10.7-22 24-22s24 8.7 24 22z"
-          fill="rgba(0,0,0,0.28)"
-        />
-        {initials ? (
-          <text
-            x="32"
-            y="38"
-            textAnchor="middle"
-            fontSize="20"
-            fontWeight="600"
-            fill="rgba(255,255,255,0.9)"
-            fontFamily="Inter, sans-serif"
-          >
-            {initials}
-          </text>
-        ) : null}
-      </svg>
+      <Image
+        src={src}
+        alt={initials ? `Portrait of ${initials}` : ""}
+        width={size}
+        height={size}
+        className="size-full object-cover"
+      />
     </span>
   );
 }

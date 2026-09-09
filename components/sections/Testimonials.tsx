@@ -48,7 +48,7 @@ export function Testimonials() {
 
       <div className="container-wide relative">
         <SectionHeading
-          label="Why clients love LogicLoom Web"
+          label="Why clients love LLW"
           title="Testimonials"
           tone="dark"
         />
@@ -62,7 +62,7 @@ export function Testimonials() {
                 <dd className="display text-[48px] leading-none md:text-[72px]">
                   <Counter
                     to={stat.value}
-                    prefix={"prefix" in stat ? stat.prefix : ""}
+                    prefix={stat.prefix ?? ""}
                     suffix={stat.suffix}
                   />
                 </dd>

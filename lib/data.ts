@@ -56,8 +56,8 @@ export const projects: Project[] = [
     ],
     review: {
       quote:
-        "LogicLoom took a loose set of ideas and returned a brand that finally looks like the studio we actually are.",
-      author: "John Watson",
+        "LLW took a loose set of ideas and returned a brand that finally looks like the studio we actually are.",
+      author: "Aditya Menon",
       role: "Founder, Archin Design Studio",
     },
   },
@@ -151,33 +151,41 @@ export type Service = {
   copy: string;
   price: string;
   timeline: string;
-  art: "web" | "brand" | "logo";
+  art: "web" | "fix" | "seo" | "cms";
 };
 
 export const services: Service[] = [
   {
-    title: "Web Design",
-    tags: ["UX/UI Design", "Responsive Layouts", "Web Development"],
-    copy: "We design visually compelling, user-centric websites that blend creativity with function — built from scratch around your brand.",
-    price: "$250",
-    timeline: "1 – 2 Months",
+    title: "Website Development",
+    tags: ["Next.js & React", "Responsive Build", "Domain & Deploy"],
+    copy: "A website built from scratch — structure, design, code and launch. Fast, mobile-first and yours to own, with no page-builder lock-in.",
+    price: "$249",
+    timeline: "2 – 4 Weeks",
     art: "web",
   },
   {
-    title: "Brand Design",
-    tags: ["Visual Identity", "Style Guides", "Brand Strategy"],
-    copy: "From logo to language, we shape strategic brand systems that tell your story and stand strong wherever they show up.",
-    price: "$130",
-    timeline: "1 Month",
-    art: "brand",
+    title: "Fixes & Maintenance",
+    tags: ["Bug Fixing", "Broken Layouts", "Ongoing Care"],
+    copy: "Something broken, slow or throwing errors? We diagnose it, fix it and tell you plainly what went wrong — then keep it healthy month to month.",
+    price: "$39",
+    timeline: "1 – 3 Days",
+    art: "fix",
   },
   {
-    title: "Logo Design",
-    tags: ["Logo Marks", "Wordmarks", "Icon Design"],
-    copy: "Every brand deserves a signature mark. We craft logos that are bold and clear — so your brand speaks without saying a word.",
-    price: "$100",
-    timeline: "15 Days",
-    art: "logo",
+    title: "SEO & Performance",
+    tags: ["Technical SEO", "Core Web Vitals", "Schema & Sitemaps"],
+    copy: "Rankings follow the fundamentals: clean markup, fast pages, correct metadata. We fix all three and hand you a before/after report.",
+    price: "$99",
+    timeline: "1 – 2 Weeks",
+    art: "seo",
+  },
+  {
+    title: "WordPress & Shopify",
+    tags: ["Theme Customisation", "Ecommerce", "Migrations"],
+    copy: "CMS and store work done carefully — custom sections, product pages, checkout tweaks and migrations that do not break what already works.",
+    price: "$149",
+    timeline: "1 – 3 Weeks",
+    art: "cms",
   },
 ];
 
@@ -195,41 +203,50 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "LogicLoom turned our ideas into a sharp, clean brand. Fast, easy, and right on point.",
-    author: "Ethan Moore",
+      "Our old site broke every second week. LLW rebuilt it in three weeks and it has not gone down since.",
+    author: "Rohan Deshpande",
     role: "Co-founder, NovaTech",
-    initials: "EM",
+    initials: "Rohan Deshpande",
   },
   {
     quote:
-      "Clear, thoughtful, and fast — LogicLoom made the whole process effortless.",
-    author: "Olivia Tran",
+      "They fixed a checkout bug two agencies had given up on — and it took them a single day.",
+    author: "Ananya Iyer",
     role: "Creative Director, Bloom Agency",
-    initials: "OT",
+    initials: "Ananya Iyer",
   },
   {
-    quote: "Smart design, smooth delivery. LogicLoom is great to work with.",
-    author: "Lucas Bennett",
+    quote:
+      "The SEO pass moved us onto page one for our main keyword in under two months. Worth every rupee.",
+    author: "Karthik Nair",
     role: "Product Manager, Hexa Studio",
-    initials: "LB",
+    initials: "Karthik Nair",
   },
 ];
 
-export const stats = [
-  { value: 120, suffix: "+", label: "Finalized Projects" },
+export type Stat = {
+  value: number;
+  label: string;
+  /** Rendered before/after the counted value, e.g. $1M or 98%. */
+  prefix?: string;
+  suffix?: string;
+};
+
+export const stats: Stat[] = [
+  { value: 120, suffix: "+", label: "Projects Delivered" },
   { value: 98, suffix: "%", label: "Client satisfaction rate" },
-  { value: 1, suffix: "M", label: "Gross Revenue", prefix: "$" },
-] as const;
+  { value: 24, suffix: "h", label: "Average first reply" },
+];
 
 /* -------------------------------------------------------------------- */
 /*  Founder timeline                                                     */
 /* -------------------------------------------------------------------- */
 
 export const timeline = [
-  { role: "Full-service web & brand studio", period: "2024-Now" },
-  { role: "Design systems practice added", period: "2023-2024" },
-  { role: "Ecommerce and product builds", period: "2018-2023" },
-  { role: "LogicLoom Web founded", period: "2015-2018" },
+  { role: "Full-stack web, SEO & maintenance studio", period: "2024-Now" },
+  { role: "SEO and performance practice added", period: "2023-2024" },
+  { role: "Ecommerce, WordPress and Shopify builds", period: "2018-2023" },
+  { role: "LLW founded", period: "2015-2018" },
 ] as const;
 
 /* -------------------------------------------------------------------- */
@@ -277,31 +294,47 @@ export type Plan = {
 
 export const plans: Plan[] = [
   {
-    name: "Standard Plan",
-    copy: "Ideal for lean teams or startups needing clean, fast design delivery for websites or branding assets.",
-    delivery: "4-6 weeks",
-    price: "$500",
-    cadence: "/month",
+    name: "Quick Fix",
+    copy: "For one specific problem — a broken page, a layout that collapses on mobile, an error you cannot trace. Priced per fix, not per hour.",
+    delivery: "1-3 days",
+    priceLabel: "From",
+    price: "$39",
     features: [
-      "You provide the wireframe",
-      "Visual design using Figma & Framer",
-      "Focused on website or branding only",
-      "Weekday turnaround (Mon–Fri)",
+      "One bug, error or broken layout fixed",
+      "Root cause explained in plain English",
+      "Re-tested on mobile, tablet and desktop",
+      "100% money-back guarantee",
     ],
   },
   {
-    name: "Premium Plan",
-    copy: "A complete design experience — tailored strategy, polished visuals, and flexible collaboration throughout the process.",
-    delivery: "4-6 weeks",
+    name: "Launch Plan",
+    copy: "A complete website built from scratch — structure, design, code, content wiring and go-live. The plan most new clients start on.",
+    delivery: "2-4 weeks",
     priceLabel: "Starting at",
-    price: "$1000",
+    price: "$249",
     features: [
-      "Help shaping your wireframe or brief",
-      "Custom design for website, brand, or logo",
-      "High-fidelity mockups using Figma & Framer",
-      "Dedicated weekday focus & deeper involvement",
+      "Up to 6 custom-designed pages",
+      "Built in Next.js or WordPress — your call",
+      "On-page SEO and speed pass included",
+      "Domain, hosting and deployment handled",
+      "30 days of free fixes after launch",
+      "100% money-back guarantee",
     ],
     featured: true,
+  },
+  {
+    name: "Growth Retainer",
+    copy: "Ongoing care once you are live — SEO work, new sections, speed monitoring and a fixed number of change requests each month.",
+    delivery: "Monthly",
+    price: "$199",
+    cadence: "/month",
+    features: [
+      "Unlimited small fixes and content edits",
+      "Monthly technical SEO and speed report",
+      "New sections and pages as you need them",
+      "Priority reply, pause or cancel anytime",
+      "100% money-back guarantee",
+    ],
   },
 ];
 
@@ -311,28 +344,28 @@ export const plans: Plan[] = [
 
 export const faqs = [
   {
-    q: "Why LogicLoom Web instead of a full-time designer?",
-    a: "You get senior-level output without the overhead of a salary, benefits or a hiring cycle. Scale the work up when you are shipping and pause it when you are not.",
+    q: "Do you only design, or do you build the website too?",
+    a: "We build. Design is one step — we take a project from wireframe through to working, deployed code in Next.js, React or WordPress, connected to your domain and live.",
   },
   {
-    q: "Speed of design delivery?",
-    a: "Pretty quick! Most designs are delivered in 2–3 business days. We prioritize quality without slowing you down.",
+    q: "Can you fix an existing site you did not build?",
+    a: "Yes, that is a large part of what we do. Send us the URL and access, and we come back the same working day with what is wrong, what it costs and how long it takes.",
   },
   {
-    q: "What is the LogicLoom Web process like?",
-    a: "A short kickoff to align on the brief, a first pass within days, then focused revision rounds. You always know what is in progress and what lands next.",
+    q: "Do you handle SEO as well?",
+    a: "We handle technical SEO — clean markup, metadata, schema, sitemaps, internal linking and Core Web Vitals. You get a before/after report so you can see exactly what moved.",
   },
   {
-    q: "How to request a design?",
-    a: "Send the brief through the contact form or your shared board. We confirm scope and timing the same working day and queue it immediately.",
+    q: "You are on Fiverr too — should I book there or here?",
+    a: "Either works, and the person doing the work is the same. Fiverr is easiest for a single scoped job with buyer protection built in. Book direct if you want a larger build, a retainer or an ongoing relationship.",
   },
   {
-    q: "What if I do not like the design?",
-    a: "We keep iterating. Every engagement includes revision rounds, and we would rather rework a direction than hand over something you are lukewarm about.",
+    q: "What if I am not satisfied with the work?",
+    a: "You get your money back. We keep iterating first — every engagement includes revision rounds — but if you are still unhappy we refund you rather than hand over something you will not launch.",
   },
   {
-    q: "Are there any refunds?",
-    a: "If we have not started production work, the engagement is refundable in full. Once design is underway we bill only for the work already delivered.",
+    q: "How affordable is this really?",
+    a: "Fixes start at $39 and a full custom website starts at $249. We work from Mumbai, which keeps our rates well under a Western agency rate without changing the quality of the code.",
   },
 ] as const;
 
@@ -385,20 +418,20 @@ export const posts = [
 
 export const tools = [
   {
-    name: "Framer",
+    name: "Next.js",
     role: "Development",
     badge: "PRO",
-    copy: "By uniting design, prototyping and development, the platform lets us ship visually striking, high-performance sites in one seamless workflow.",
+    copy: "Our default for custom builds. Server rendering and image optimisation out of the box mean sites that score well on Core Web Vitals before we tune anything.",
   },
   {
-    name: "Notion",
-    role: "Productivity",
-    copy: "An all-in-one workspace combining notes, task management and collaboration behind a flexible, customizable interface.",
+    name: "WordPress",
+    role: "CMS & Ecommerce",
+    copy: "When a client needs to edit content themselves, WordPress and WooCommerce stay the pragmatic choice — customised properly, not stacked with plugins.",
   },
   {
-    name: "Webflow",
-    role: "Design & CMS",
-    copy: "Where design, CMS and development come together — ideal for building fast, visually rich websites without code.",
+    name: "Figma",
+    role: "Design",
+    copy: "Every build starts here. Layouts, components and states are agreed in Figma first, so nothing is being invented halfway through development.",
   },
 ] as const;
 
@@ -407,19 +440,19 @@ export const tools = [
 /* -------------------------------------------------------------------- */
 
 export const capabilityWords = [
-  "Branding",
-  "Logo",
-  "Website",
-  "Illustration",
-  "Interface",
-  "Strategy",
+  "Development",
+  "Bug Fixing",
+  "SEO",
+  "WordPress",
+  "Shopify",
+  "Performance",
 ] as const;
 
 export const trustMarquee = [
-  "Website Design",
-  "Brand Design",
-  "Logo Design",
-  "Senior Designer",
-  "10 Years of Experience",
-  "Over 100 Customers",
+  "Website Development",
+  "Bug Fixing & Maintenance",
+  "SEO & Performance",
+  "WordPress & Shopify",
+  "Money-Back Guarantee",
+  "Also on Fiverr",
 ] as const;

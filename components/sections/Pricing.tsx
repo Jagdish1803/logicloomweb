@@ -13,7 +13,7 @@ export function Pricing() {
       <div className="container-wide">
         <SectionHeading label="Pricing Plan" title="Explore Pricing" />
 
-        <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 md:gap-6">
+        <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <Reveal key={plan.name} direction="up" delay={index * 0.1}>
               <PlanCard plan={plan} />

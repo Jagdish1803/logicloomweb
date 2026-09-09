@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
  * (no hydration mismatch) and the client subscribes to a one-second tick.
  */
 
-const formatter = new Intl.DateTimeFormat("en-GB", {
+const formatter = new Intl.DateTimeFormat("en-IN", {
   hour: "2-digit",
   minute: "2-digit",
   second: "2-digit",

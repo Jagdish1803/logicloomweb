@@ -10,7 +10,7 @@ import { capabilityWords } from "@/lib/data";
  * through the viewport — the reference site's scroll-linked text reveal.
  */
 export function Manifesto({
-  text = "We help fast-moving digital startups launch sharper brands and websites — with clarity, speed, and no drama.",
+  text = "We build websites from scratch, fix the ones that are already broken, and get both of them ranking — with clarity, speed, and no drama.",
 }: {
   text?: string;
 }) {

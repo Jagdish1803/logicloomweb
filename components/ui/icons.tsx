@@ -153,3 +153,34 @@ export function Sparkle({ className = "size-4" }: IconProps) {
     </svg>
   );
 }
+
+export function Star({ className = "size-4" }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M8 1.6l1.85 3.9 4.15.6-3 3.02.71 4.28L8 11.38l-3.71 2.02.71-4.28-3-3.02 4.15-.6L8 1.6z" />
+    </svg>
+  );
+}
+
+export function ShieldCheck({ className = "size-4" }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M8 1.75 13.25 3.5v4.13c0 3.2-2.1 5.53-5.25 6.62-3.15-1.09-5.25-3.42-5.25-6.62V3.5L8 1.75Z" />
+      <path d="M5.75 7.9 7.3 9.45l3-3.2" />
+    </svg>
+  );
+}
